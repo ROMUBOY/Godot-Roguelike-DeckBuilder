@@ -8,7 +8,7 @@ const DRAG_STYLEBOX := preload("res://scenes/card_ui/card_dragging_stylebox.tres
 const HOVER_STYLEBOX := preload("res://scenes/card_ui/card_hover_stylebox.tres")
 
 @export var card: Card : set = _set_card
-@export var char_stats: CharacterStats
+@export var char_stats: CharacterStats : set = _set_char_stats
 
 @onready var panel: Panel = $Panel
 @onready var cost: Label = $Cost
@@ -25,9 +25,9 @@ var disable := false
 
 func _ready() -> void:
 	Events.card_aim_started.connect(_on_card_drag_or_aiming_started)
-	Events.card_aim_ended.connect(_on_card_drag_or_aiming_ended)
 	Events.card_drag_started.connect(_on_card_drag_or_aiming_started)
 	Events.card_drag_ended.connect(_on_card_drag_or_aiming_ended)
+	Events.card_aim_ended.connect(_on_card_drag_or_aiming_ended)
 	card_state_machine.init(self)
 
 func _input(event: InputEvent) -> void:

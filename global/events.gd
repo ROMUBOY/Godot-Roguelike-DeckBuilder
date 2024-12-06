@@ -1,8 +1,15 @@
 extends Node
 
-#Card-Related Events
+#Card-related events
 signal card_drag_started(card: CardUI)
 signal card_drag_ended(card: CardUI)
 signal card_aim_started(card: CardUI)
 signal card_aim_ended(card: CardUI)
 signal card_played(card: Card)
+signal card_tooltip_requested(card: Card)
+signal tooltip_hide_requested
+
+#Player-related events
+signal player_hand_drawn
+signal player_hand_discard
+signal player_turn_ended
